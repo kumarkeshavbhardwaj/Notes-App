@@ -117,6 +117,10 @@ button:hover {
 }
 .note-icon{
   font-size: 4rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.delete-icon, .edit-icon{
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 .note-list-area p{
   font-size: .75rem;
