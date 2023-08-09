@@ -10,8 +10,8 @@ function App() {
       <div className="logo">Notes App</div>
       <div className="container">
       <CreateNote></CreateNote>
-      <EmptyNotes></EmptyNotes>
-        {/* <DisplayNote></DisplayNote> */}
+      {/* <EmptyNotes></EmptyNotes> */}
+        <DisplayNote></DisplayNote>
       </div>
     </>
   );
