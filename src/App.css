@@ -126,6 +126,7 @@ button:hover {
 .note-list-area p{
   font-size: .75rem;
   font-weight: bold;
+  margin-bottom: 15px;
 }
 
 .note-icon:hover,.delete-icon:hover,.edit-icon:hover{

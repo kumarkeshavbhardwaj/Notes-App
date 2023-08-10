@@ -25,16 +25,17 @@ const CreateNote = (props) => {
 
   const getDate = (random) => {
   console.log('date fun init');
-  const currentDate = new Date();
-  const day = currentDate.getDate();
-  const month = currentDate.getMonth() + 1; // Months are 0-based, so add 1
-  const year = currentDate.getFullYear();
+  const formattedDate = Date.now()
+  // const currentDate = new Date();
+  // const day = currentDate.getDate();
+  // const month = currentDate.getMonth() + 1; // Months are 0-based, so add 1
+  // const year = currentDate.getFullYear();
 
-  // Pad single digits with a leading zero if necessary
-  const formattedDay = day < 10 ? `0${day}` : day;
-  const formattedMonth = month < 10 ? `0${month}` : month;
+  // // Pad single digits with a leading zero if necessary
+  // const formattedDay = day < 10 ? `0${day}` : day;
+  // const formattedMonth = month < 10 ? `0${month}` : month;
 
-  const formattedDate = `${formattedDay} ${formattedMonth} ${year}`;
+  // const formattedDate = `${formattedDay} ${formattedMonth} ${year}`;
   console.log(`date fun end - ${formattedDate}`);
 
 

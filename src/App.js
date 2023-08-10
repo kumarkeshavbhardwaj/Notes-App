@@ -7,13 +7,11 @@ import CreateNote from "./components/CreateNote";
 
 function App() {
 
-  const [receivedValue, setReceivedValue] = useState([]);
-
-
+  const [receivedTodos, setReceivedTodos] = useState([]);
 
   const handleValueFromChild = (value) => {
     console.log(`Parent value: ${value}`)
-    setReceivedValue(value);
+    setReceivedTodos(value);
   };
 
 
@@ -22,9 +20,7 @@ function App() {
       <div className="logo">Notes App</div>
       <div className="container">
       <CreateNote onValueSend={handleValueFromChild}></CreateNote>
-      {/* <EmptyNotes></EmptyNotes> */}
-        <DisplayNote></DisplayNote>
-        <h1>Total todos: {receivedValue.length}</h1>
+      {receivedTodos.length===0 ? <EmptyNotes></EmptyNotes> : <DisplayNote todos={receivedTodos}></DisplayNote>}
       </div>
     </>
   );
