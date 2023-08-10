@@ -3,10 +3,16 @@ import "../App.css";
 import { useState } from 'react';
 
 
-const CreateNote = () => {
+const CreateNote = (props) => {
   
   const [todos, setTodo] = useState([]);
   const [val, setVal] = useState('');
+
+  const sendValueToParent = () => {
+    console.log(`sending value to Parent: ${todos.length}`)
+    const valueToSend = todos;
+    props.onValueSend(valueToSend);
+  };
 
 
   const generateRandomNumber = () => {
@@ -38,12 +44,16 @@ const CreateNote = () => {
         date: formattedDate,
       }
       setTodo((prevTodos) => [...prevTodos, newTodo]);
-      console.log(todos);
       setVal('')
       console.log(`addtodo fun end - ${todos.length}`);
   }
 
+  useEffect(() => {
+    
+    console.log(`value in child: ${todos.length}`);
+    sendValueToParent();
 
+  }, [todos.length])
 
 
   const addTodo = () => {
@@ -58,7 +68,7 @@ const CreateNote = () => {
             <textarea value={val} onChange={(e) => setVal(e.target.value)} placeholder='Write something here...'></textarea>
             <div className="button-area">
             <button onClick={addTodo}>Create Note</button>
-            <h1>Total todos: {todos.length}</h1>
+            <h2></h2>
             </div>
         </div>
   )
