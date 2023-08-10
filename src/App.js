@@ -11,7 +11,7 @@ function App() {
       <div className="container">
       <CreateNote></CreateNote>
       {/* <EmptyNotes></EmptyNotes> */}
-        <DisplayNote></DisplayNote>
+        <DisplayNote></DisplayNote>x
       </div>
     </>
   );
