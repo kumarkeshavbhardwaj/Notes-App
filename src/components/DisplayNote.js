@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../App.css";
 import ReactTimeago from "react-timeago";
 
@@ -14,13 +14,12 @@ const DisplayNote = (props) => {
     <div className="note-list-area">
       <ul className="list">
       {props.todos.map((todo, index) => (
-          <li key={index}>
-            {/* {item} */}
+          <li key={todo.id}>
             <div className="icon-container">
             <i className="fa-solid fa-note-sticky note-icon"></i>
             <div className="side-icons">
               <i className="fa-solid fa-pen edit-icon"></i>
-              <i className="fa-solid fa-trash delete-icon"></i>
+              <i onClick={()=> props.handleDelete(todo.id)} className="fa-solid fa-trash delete-icon"></i>
             </div>
           </div>
           <p>

@@ -9,38 +9,29 @@ function App() {
 
   const [todos, setTodo] = useState([]);
 
-  useEffect(() => {
-    console.log(todos.length);
-    console.log(todos);
-  })
+  // useEffect(() => {
+  //   console.log(` USEFX - ${todos.length}`)
+  // }, [todos.length])
 
-  // const deleteNote = () => {
-
-  //   const newList = todos;
-  //   const todoIndex = todos.findIndex((todo) => todo.id===props.idDeletion);
-  //   newList.splice(todoIndex,1);
-  //   setTodo(newList);
-
-  // }
+  const handleDelete = (id) => {
+    console.log(`deleteNote init - ${id}`)
+    console.log(`todo available: ${todos.length}`);
+    const newList = todos.filter((todo) => todo.id !== id); // Create a copy of the original list
+    setTodo(newList);
+  };
 
   const addTodo = (text) => {
-    // console.log(`addTodo init - ${text}`)
     if(text!==''){
       generateRandomNumber(text);
     }
   }
 
   const generateRandomNumber = (text) => {
-    // console.log(`random init - ${text}`)
-
     const random = Math.floor(Math.random() * 100) + 1;
-
     getDate(random,text); // Generates a random number between 1 and 100
   };
 
   const getDate = (random,text) => {
-    // console.log(`getDate init - ${random} - ${text}`)
-
   const formattedDate = Date.now()
   const newTodo = {
         id: random,
@@ -48,16 +39,14 @@ function App() {
         date: formattedDate,
       }
       setTodo([...todos, newTodo]);
-      // console.log(`finished`)
     }
-
-
+    
   return (
     <>
       <div className="logo">Notes App</div>
       <div className="container">
       <CreateNote addTodo={addTodo}></CreateNote>
-      {todos.length===0 ? <EmptyNotes></EmptyNotes> : <DisplayNote todos = {todos}></DisplayNote>}
+      {todos.length===0 ? <EmptyNotes></EmptyNotes> : <DisplayNote handleDelete={handleDelete} todos = {todos}></DisplayNote>}
       </div>
     </>
   );
